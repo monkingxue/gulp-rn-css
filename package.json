@@ -1,0 +1,33 @@
+{
+  "name": "gulp-react-native-css",
+  "version": "0.1.0",
+  "description": "a gulp-plugin to transform scss/sass/css/less file to javascript object",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monkingxue/gulp-react-native-css.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "react-native",
+    "css"
+  ],
+  "author": "monkingxue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monkingxue/gulp-react-native-css/issues"
+  },
+  "homepage": "https://github.com/monkingxue/gulp-react-native-css#readme",
+  "devDependencies": {
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "mocha": "^3.2.0",
+    "stream": "0.0.2",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.1"
+  }
+}
