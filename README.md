@@ -1,6 +1,6 @@
-# [gulp][gulp]-rn-css 
+# [gulp][gulp]-rn-css  [![NPM version](https://badge.fury.io/js/gulp-rn-css.svg)](http://badge.fury.io/js/gulp-rn-css)
 
-> a gulp-plugin to transform scss/sass/css/less file to javascript object
+> a gulp plugin to transform scss/sass/css/less file to javascript object in react-native.
 
 ## Installation
 
