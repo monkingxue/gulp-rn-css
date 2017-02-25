@@ -18,7 +18,7 @@ var rnCss  = require('gulp-rn-css');
 
 gulp.task('default', function() {
     return gulp.src('style/*.scss')
-        .pipe(rnCss)
+        .pipe(rnCss())
         .pipe(gulp.dest('dist/style'))
 });
 ```
