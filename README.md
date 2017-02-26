@@ -1,6 +1,10 @@
 # [gulp][gulp]-rn-css  [![NPM version](https://badge.fury.io/js/gulp-rn-css.svg)](http://badge.fury.io/js/gulp-rn-css)
 
-> a gulp plugin to transform scss/sass/css/less file to javascript object in react-native.
+> a gulp plugin to transform css/nest-css file to javascript object in react-native.
+
+## Tips
+
+Hello guys,this is a plugin but its function is not perfect, so I will imporve this plugin, please read the usage carefully.
 
 ## Installation
 
@@ -21,6 +25,44 @@ gulp.task('default', function() {
         .pipe(rnCss())
         .pipe(gulp.dest('dist/style'))
 });
+```
+
+## Compile
+
+### before:
+```css
+.item-get {
+	display: flex;
+	margin-left: 4px;
+	flex-direction: row
+}
+
+.item-title {
+	padding-top: 4px;
+	height: 100px;
+	.item-control: {
+		border-top: 1px;
+		border-color: #fff;
+	}
+}
+```
+### after:
+```js 
+module.exports = {
+    "itemGet":{
+        "display":"flex",
+        "marginLeft":"4",
+        "flexDirection":"row",
+    },
+    "itemTitle":{
+        "paddingTop":"4",
+        "height":"100",
+        "itemControl":{
+            "borderTop":"1",
+            "borderColor":"#fff",
+        }
+     }
+}
 ```
 
 ## Contributing
