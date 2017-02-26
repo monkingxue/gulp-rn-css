@@ -1,7 +1,7 @@
 {
   "name": "gulp-rn-css",
   "version": "0.1.2",
-  "description": "a gulp-plugin to transform scss/sass/css/less file to javascript object",
+  "description": "a gulp-plugin to transform css/nest-css file to javascript object",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/index.js"
