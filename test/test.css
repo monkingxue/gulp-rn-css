@@ -1,0 +1,97 @@
+.icon-size-sm {
+    width: 15px;
+    height: 15px;
+}
+
+.icon-size {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-size-md {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-size-xm {
+    width: 52px;
+    height: 52px;
+}
+
+.icon-size-lg {
+    width: 72px;
+    height: 72px;
+}
+
+.icon-size-xl {
+    width: 100px;
+    height: 100px;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.react-w-full {
+    width: 100vw;
+}
+
+.react-w-lg {
+    width: 90vw;
+}
+
+.react-w-md {
+    width: 60vw;
+}
+
+.react-w {
+    width: 40vw;
+}
+
+.react-w-sm {
+    width: 20vw;
+}
+
+.react-w-xsm {
+    width: 10vw;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-grow-one {
+    flex-grow: 1;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col-re {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.flex-row-re {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}

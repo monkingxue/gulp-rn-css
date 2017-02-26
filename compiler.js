@@ -1,13 +1,15 @@
 const UPBRACKET = /\{/;
 const UDBRACKET = /\}/;
-const DOT = /\./;
+const DOT = /^\./;
 const IGNORE = /\s|:|,|;/;
-const varTERS = /[a-z]/i;
+const varTERS = /[a-z]|-|\d|\#/i;
 const PROPERTY = {
-  key: /([a-z]|-)+/i,
-  value: /([a-z]|[0-9]|\.)+/i
+  key: /[a-z]|-/i,
+  value: /[a-z]|\d|\.|\#/i
 };
-const NUMBERS = /[0-9]/;
+
+
+const NUMBERS = /^(-?)\d*(\d+|(\.))\d*/;
 
 function tokenizer(input) {
 
@@ -64,19 +66,6 @@ function tokenizer(input) {
         tokens.push({
           type: type,
           value: key
-        });
-        break;
-
-      case NUMBERS.test(char):
-        var value = "";
-        while (PROPERTY.value.test(char)) {
-          value += char;
-          char = input[++current];
-        }
-        isKey = true;
-        tokens.push({
-          type: "value",
-          value: value
         });
         break;
 
@@ -162,43 +151,54 @@ function parser(tokens) {
 
 function codeGenerator(node) {
 
-  function wrapQuotation(str) {
-    return "\"" + str + "\""
-  }
-
-  function camelCase(str) {
-    return str.replace(/-[a-z]/, function (match) {
-      return match.charAt(1).toUpperCase();
-    })
-  }
-
   switch (node.type) {
 
     case "Program":
       return node.body.map(codeGenerator)
-        .join(";");
+        .join(",");
 
     case "Attribute":
       return (
         codeGenerator(node.value.key) +
-        codeGenerator(node.value.value) +
-        ","
+        codeGenerator(node.value.value)
       );
 
     case "NestClass":
-      return wrapQuotation(node.name) + ":{" +
-        node.attibutes.map(codeGenerator) +
+      return dealNotValue(node.name) + ":{" +
+        node.attibutes.map(codeGenerator) + ","+
         node.childs.map(codeGenerator) + "}";
 
     case "AttributeKey":
-      return wrapQuotation(camelCase(node.value)) + ":";
+      return dealNotValue(node.value) + ":";
 
     case "AttributeValue":
-      return wrapQuotation(node.value);
+      return dealValue(node.value);
 
     default:
       throw new TypeError(node.type);
   }
+}
+
+function wrapQuotation(str) {
+  return "\"" + str + "\""
+}
+
+function camelCase(str) {
+  return str.replace(/-[a-z]/, function (match) {
+    return match.charAt(1).toUpperCase();
+  })
+}
+
+function delUnit(str) {
+  return NUMBERS.test(str) ? str.match(NUMBERS)[0] : str
+}
+
+function dealValue(str) {
+  return wrapQuotation(camelCase(delUnit(str)));
+}
+
+function dealNotValue(str) {
+  return wrapQuotation(camelCase(str));
 }
 
 function compiler(input) {
