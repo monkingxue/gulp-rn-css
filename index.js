@@ -19,7 +19,7 @@ module.exports = function gulpRNTransformCSS() {
     }
 
     if (file.isBuffer()) {
-      file.contents = new Buffer("module.export={" + compiler(file.contents.toString()) + "};");
+      file.contents = new Buffer("module.exports={" + compiler(file.contents.toString()) + "};");
     }
 
     this.push(file);
