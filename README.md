@@ -6,7 +6,7 @@
 
 Hello guys,this is a plugin but its function is not perfect, so I will imporve this plugin, please read the usage carefully.
 
-## Installation
+## Installation 修改
 
 Install via [npm](https://www.npmjs.com/package/gulp-rn-css):
 
